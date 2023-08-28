@@ -1,8 +1,8 @@
 <?php
 	$host='localhost';
-	$user='tuanoric_tuanoriaaa';
-	$pass='tuanoric_tuanoriaaa';
-	$db='tuanoric_tuanoriaaa';
+	$user='root';
+	$pass='';
+	$db='video_db';
 	//error_reporting(0);//Chan thong bao loi
 
 	$link=mysqli_connect($host,$user,$pass,$db) or die('Lỗi kết nối');

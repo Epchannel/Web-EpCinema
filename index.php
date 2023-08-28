@@ -14,6 +14,7 @@
   <link href="css/owl.carousel.css" type="text/css" rel="stylesheet">
   <link href="css/owl.theme.default.min.css" type="text/css" rel="stylesheet">
   <link href="css/style.min.css" type="text/css" rel="stylesheet">
+  <script src="js/jquery.min.js" type="text/javascript"></script>
   <?php
     if (isset($_GET['mod'])) {
       $mod=$_GET['mod'];
@@ -35,7 +36,6 @@
       echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>';
     }
   ?>
-  <script src="js/jquery.min.js" type="text/javascript"></script>
   <script src="js/owl.carousel.js" type="text/javascript"></script>
   <script src="js/jwplayer.js"></script>
 </head>

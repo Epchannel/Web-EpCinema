@@ -1,9 +1,31 @@
 <?php
-  if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
-  if (isset($_GET['episode'])) $episode = $_GET['episode'];
-  $sql = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";
-  $query= mysqli_query($link, $sql);
-  $r=mysqli_fetch_assoc($query);
+if (!$link)
+{
+    die("Lỗi kết nối cơ sở dữ liệu: " . mysqli_connect_error());
+}
+
+if (isset($_GET['film_id'])) $film_id = $_GET['film_id'];
+if (isset($_GET['episode'])) $episode = $_GET['episode'];
+
+$sql   = "select * from `episode` where `film_id` = '$film_id' and `episode` = '$episode'";
+$query = mysqli_query($link, $sql);
+
+if (!$query)
+{
+    die("Lỗi truy vấn: " . mysqli_error($link));
+}
+
+$r = mysqli_fetch_assoc($query);
+
+// In ra thông tin URL video
+if ($r && isset($r['content']))
+{
+    echo "URL video: " . $r['content'];
+}
+else
+{
+    echo "Không tìm thấy URL video trong cơ sở dữ liệu!";
+}
 ?>
 <div id="content">
     <div  id="movie-display">
@@ -40,8 +62,14 @@
         <div class="row body_video">
             <div class="col-sm-12">
                 <video width="100%" height="100%" controls>
-                    <source src="<?php echo $r['content'] ?>" type="video/mp4">
-                    <!-- <src="https://www.w3schools.com/tags/movie.mp4" type="video/mp4"> -->
+                    <?php if ($r && isset($r['content']))
+                    { ?>
+                        <source src="<?php echo $r['content']; ?>" type="video/mp4">
+                    <?php }
+                    else
+                    { ?>
+                        <p>Video không khả dụng.</p>
+                    <?php } ?>
                     Your browser does not support the video tag.
                 </video>
             </div>
