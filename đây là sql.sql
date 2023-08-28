@@ -77,9 +77,9 @@ CREATE TABLE `episode` (
 --
 
 INSERT INTO `episode` (`id`, `film_id`, `episode`, `episode_name`, `content`) VALUES
-(1, 122, 1, 'Full', 'images/video/film122-1.mp4'),
-(2, 121, 1, '1', 'images/video/film121-1.mp4'),
-(3, 121, 2, '2', 'images/video/film121-2.mp4');
+(5, 20, 23, 'Tập 23', 'https://onedrive.live.com/download?cid=F1A9A0E7EB85ADF8&resid=F1A9A0E7EB85ADF8!117&authkey=!ADM3gGITCvbr0g4');
+
+ALTER TABLE `episode` MODIFY `content` VARCHAR(255);
 
 -- --------------------------------------------------------
 
